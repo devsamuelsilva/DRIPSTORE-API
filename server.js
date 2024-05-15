@@ -1,7 +1,10 @@
 import express from 'express'
 import { connect } from './DB/db.js'
 import { produtoRoute } from './routes/produto.routes.js'
-const app = express()
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const HOST = 'localhost'
 const PORT = 3000

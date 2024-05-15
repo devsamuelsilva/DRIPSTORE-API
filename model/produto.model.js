@@ -3,8 +3,13 @@ import { sequelize } from "../DB/database.js";
 
 
 //model declarado de forma manual.
-
 export const Produtos = sequelize.define('produtos', {
+    id: {
+        type: DataTypes.INTEGER,
+        // allowNull: false,
+        // autoIncrement: false,
+        primaryKey: true
+    },
     nome: {
         type: DataTypes.STRING,
         alowNull: false
