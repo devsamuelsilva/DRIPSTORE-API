@@ -9,6 +9,13 @@ export const produtoRoute = (app) => {
     // Rota para criação de produto
     route.post('/', produtoService.createProduto);
 
+    //Rota para atualizar o Id do produto
+    route.put('/atualizar/:id', produtoService.updateProdutoId);
+
+    route.delete('/delete/:id', produtoService.deleteProdutoId);
+
+    route.get('/ordenar/2', produtoService.organizandoPorId);
+
     app.use('/api/produto', route);
 
 }
