@@ -21,5 +21,5 @@ app.get('/', (req, res) => {
 produtoRoute(app);
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port https://${HOST}:${PORT}`)
+  console.log(`Example app listening on port http://${HOST}:${PORT}`)
 })
