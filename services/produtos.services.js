@@ -19,6 +19,21 @@ export const produtoService = {
             }
             return res.status(200).json(produto);
         },
+
+        getByAtivo: async (req, res) => {
+            const ativo = req.params.ativo === 'true' ? true : false;
+            const produto = await Produtos.findAll({
+              where: {ativo: ativo}
+            });
+            
+            if(!produto){
+                return res.status(404).json({
+                    message: `Nao existe produtos que nao estao ATIVOS`
+                })
+            }
+
+            return res.status(200).json(produto);
+        },
         
         createProduto: async (req, res) => {
             
