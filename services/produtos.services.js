@@ -16,7 +16,9 @@ export const produtoService = {
                 return res.status(404).json({
                     message: `Produto id: ${id} não encontrado`
                 })
-            }
+            };
+
+            //const produtoJSON = JSON.parse(produto,2);
             return res.status(200).json(produto);
         },
 
