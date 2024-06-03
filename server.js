@@ -1,7 +1,7 @@
 import express from 'express'
 import { connect } from './DB/db.js'
 import { produtoRoute } from './routes/produto.routes.js'
-import { cors } from 'cors'
+import  cors  from 'cors'
 
 const app = express();
 
