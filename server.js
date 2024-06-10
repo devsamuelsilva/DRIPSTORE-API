@@ -2,6 +2,8 @@ import express from 'express'
 import { connect } from './DB/db.js'
 import { produtoRoute } from './routes/produto.routes.js'
 import  cors  from 'cors'
+import { usuarioService } from './services/usuario.services.js';
+import { usuarioRoute } from './routes/usuario.routes.js';
 
 const app = express();
 
@@ -25,6 +27,7 @@ app.get('/', (req, res) => {
 })
 
 produtoRoute(app);
+usuarioRoute(app);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port http://${HOST}:${PORT}`)

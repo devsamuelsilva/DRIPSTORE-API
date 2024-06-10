@@ -10,3 +10,9 @@ export const connect = async () => {
     }
   };
 
+  sequelize.sync({force: true}).then(() => {
+    console.log('[INFO] DROP e resincroniza o DB.');
+  })
+  .catch((err) => {
+    console.log(`[ERROR] Erro ao sincronizar o DB: ${err}`);
+  })
