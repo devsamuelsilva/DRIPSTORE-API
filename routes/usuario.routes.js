@@ -1,5 +1,4 @@
 import express from 'express'
-import { produtoService } from '../services/produtos.services.js';
 import { usuarioService } from '../services/usuario.services.js';
 
 export const usuarioRoute = (app) => {
