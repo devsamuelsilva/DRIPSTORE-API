@@ -1,4 +1,7 @@
-import { Produtos } from "../model/produto.model.js"
+//import { Produtos } from "../model/produto.model.js"
+import db from "../model/index.js";
+
+const Produtos = db.Produtos;
 
 export const produtoService = {
 

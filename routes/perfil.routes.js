@@ -1,11 +1,11 @@
 import express from 'express'
 import { perfilService } from '../services/perfil.services.js';
 
-export const perfilRoute = (app) => {
-    var route = express.Router();
+var perfilRoute = express.Router();
 
-    route.get('/', perfilService.getAll);
+    perfilRoute
+    .get('/', perfilService.getAll);
 
-    app.use('/api/perfil', route);
+    // app.use('/api/perfil', route);
 
-}
+export default perfilRoute;

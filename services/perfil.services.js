@@ -1,4 +1,7 @@
-import { Perfil } from "../model/perfil.model.js"
+// import { Perfil } from "../model/perfil.model.js"
+import db from "../model/index.js";
+
+const Perfil = db.Perfil
 
 export const perfilService = {
     

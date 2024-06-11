@@ -1,20 +1,19 @@
 import express from 'express'
 import { usuarioService } from '../services/usuario.services.js';
 
-export const usuarioRoute = (app) => {
-    var route = express.Router();
+var usuarioRoute = express.Router();
 
-    route.get('/', usuarioService.getAll);
+usuarioRoute
+    .get('/', usuarioService.getAll)
 
     //Rota para criar um usuario implementando as informacoes no postman
-    route.post('/', usuarioService.createUsuario);
+    .post('/', usuarioService.createUsuario)
 
     //Rota para atualizar o produto pelo ID
-    route.put('/atualizar/:id', usuarioService.updateusuarioId);
+    .put('/atualizar/:id', usuarioService.updateusuarioId)
 
     //Rota para deletar o Usuario
-    route.delete('/delete/:id', usuarioService.deleteUsuarioId);
+    .delete('/delete/:id', usuarioService.deleteUsuarioId);
 
-    app.use('/api/usuario', route);
+export default usuarioRoute;
 
-}

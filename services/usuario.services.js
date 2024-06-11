@@ -1,4 +1,7 @@
-import { Usuarios } from "../model/usuarios.model.js"
+// import { Usuarios } from "../model/usuarios.model.js"
+import db from "../model/index.js";
+
+const Usuarios = db.Usuarios
 
 export const usuarioService = {
     
@@ -49,7 +52,8 @@ export const usuarioService = {
           } 
           
             return res.status(200).json({
-                message: `Usuario com ID ${id} atualizado.`
+                message: `Usuario com ID ${id} atualizado.`,
+                dadosUsuarioAtualizado
             });
 
         } catch (error) {
