@@ -1,7 +1,7 @@
 //import { Produtos } from "../model/produto.model.js"
 import db from "../model/index.js";
 
-const Produtos = db.Produtos;
+const Produtos = db.produtos;
 
 export const produtoService = {
 

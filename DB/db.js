@@ -1,3 +1,4 @@
+import { iniciarPerfis } from "../server.js";
 import { sequelize } from "./database.js";
 import 'dotenv/config'
 
@@ -11,7 +12,8 @@ export const connect = async () => {
   };
 
   sequelize.sync({force: true}).then(() => {
-    console.log('[INFO] DROP e resincroniza o DB.');
+    iniciarPerfis();
+    console.log('[INFO] DROP e resicronizacao com o DB.');
   })
   .catch((err) => {
     console.log(`[ERROR] Erro ao sincronizar o DB: ${err}`);

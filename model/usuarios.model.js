@@ -5,7 +5,8 @@ export const Usuarios = sequelize.define('usuarios', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true,
     },
     nome: {
         type: DataTypes.STRING,

@@ -3,6 +3,7 @@ import { connect } from './DB/db.js'
 import  cors  from 'cors'
 import { usuarioService } from './services/usuario.services.js';
 import { routes } from './routes/index.js';
+import db from './model/index.js';
 
 const app = express();
 
@@ -26,6 +27,33 @@ app.get('/', (req, res) => {
 })
 
 routes(app);
+
+export const iniciarPerfis = async () => {
+  const perfis = await db.perfil.findAll();
+  //console.log('perfis:', perfis)
+
+  // TODO testar usando o bulkCreate
+  if (perfis.length === 0) {
+    db.perfil.create({
+      id: 1,
+      nome: "usuario",
+      codigo: 'USER'
+    });
+
+    db.perfil.create({
+      id: 2,
+      nome: "moderador",
+      codigo: 'MOD'
+    });
+
+    db.perfil.create({
+      id: 3,
+      nome: "admin",
+      codigo: 'ADMIN'
+    });
+  }
+
+}
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port http://${HOST}:${PORT}`)

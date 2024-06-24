@@ -1,7 +1,7 @@
 // import { Perfil } from "../model/perfil.model.js"
 import db from "../model/index.js";
 
-const Perfil = db.Perfil
+const Perfil = db.perfil
 
 export const perfilService = {
     

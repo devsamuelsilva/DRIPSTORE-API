@@ -1,7 +1,7 @@
 // import { Usuarios } from "../model/usuarios.model.js"
 import db from "../model/index.js";
 
-const Usuarios = db.Usuarios
+const Usuarios = db.usuarios
 
 export const usuarioService = {
     
