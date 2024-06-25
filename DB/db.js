@@ -11,7 +11,7 @@ export const connect = async () => {
     }
   };
 
-  sequelize.sync({force: true}).then(() => {
+  sequelize.sync({force: false}).then(() => {
     iniciarPerfis();
     console.log('[INFO] DROP e resicronizacao com o DB.');
   })
