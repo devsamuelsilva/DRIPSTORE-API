@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
-import db from "../models/index.js";
 import { secret } from "../config/auth.config.js";
-const Usuario = db.usuario;
+import db from "../model/index.js";
+const Usuario = db.usuarios;
 
 const verifyToken = (req, res, next) => {
-    let token = req.headers["Authorization"];
+    let token = req.headers["authorization"];
 
     if (!token) {
         return res.status(403).send({
