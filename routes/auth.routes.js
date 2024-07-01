@@ -6,6 +6,7 @@ import { authService } from '../services/auth.services.js';
 var routerAuth = express.Router()
 
 routerAuth
+    .get('/', authService.getAll)
     //cadastrar
     .post('/signup', authService.signup)
     //logar

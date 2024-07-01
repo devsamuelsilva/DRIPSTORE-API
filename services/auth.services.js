@@ -6,11 +6,18 @@ import pkg from "bcryptjs";
 import jwt from "jsonwebtoken";
 import db from "../model/index.js";
 import { secret } from "../config/auth.config.js";
-//import { Usuarios } from "../model/usuarios.model.js";
+import { Usuarios } from "../model/usuarios.model.js";
 //import { Usuarios } from "../model/usuarios.model.js";
 const { hashSync, compareSync } = pkg;
 
 export const authService = {
+
+  getAll: async (req,res) => {
+    const usuarios = await Usuarios.findAll();
+    
+    return res.status(200).json(usuarios);
+  },
+
   //cadastrar
   signup: async (req, res) => {
     // Save User to Database
@@ -36,7 +43,7 @@ export const authService = {
         if (perfilsDB) {
           await newUser.addPerfils(perfilsDB);
           return res.status(201).json({
-            msg: `Usuario ${newUser.name} cadastrado com sucesso !!`,
+            msg: `Usuario ${newUser.name} cadastrado com sucesso ${newUser.perfis} !!`,
             data: newUser,
           });
         }
