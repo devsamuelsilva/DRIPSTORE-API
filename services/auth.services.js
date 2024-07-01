@@ -3,9 +3,9 @@ const Usuario = db.usuarios;
 //const Perfil = db.perfil;
 
 import pkg from "bcryptjs";
-//import { secret } from "../config/auth.config.js";
-//import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import db from "../model/index.js";
+import { secret } from "../config/auth.config.js";
 //import { Usuarios } from "../model/usuarios.model.js";
 //import { Usuarios } from "../model/usuarios.model.js";
 const { hashSync, compareSync } = pkg;
@@ -87,7 +87,7 @@ export const authService = {
   signin: async (req, res) => {
     const usuario = await Usuario.findOne({
       where: {
-        nome: req.body.nome,
+        email: req.body.email,
       },
     });
 
@@ -95,7 +95,7 @@ export const authService = {
       if (!usuario) {
         return res.status(404).send({ message: "User Not found." });
       }
-
+      // Testando se a senha informada e valida
       var passwordIsValid = compareSync(req.body.senha, usuario.senha);
 
       if (!passwordIsValid) {
@@ -104,8 +104,10 @@ export const authService = {
           message: "Invalid Password!",
         });
       }
-
-      const token = jwt.sign({ id: usuario.id }, secret, {
+      //seCriar o token apartir do JWT do Secret
+      const token = jwt.sign({ id: usuario.id }, 
+        secret, 
+        {
         algorithm: "HS256",
         allowInsecureKeySizes: true,
         expiresIn: 86400, // 24 hours

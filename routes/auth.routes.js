@@ -9,7 +9,7 @@ routerAuth
     //cadastrar
     .post('/signup', authService.signup)
     //logar
-    //.post('/signin', authService.signin)
+    .post('/signin', authService.signin)
     //deslogar
     //.post("/logout", authService.logout);
 
